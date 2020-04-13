@@ -3,13 +3,7 @@
     class="container"
     :class="{ 'light-background': !isDarkMode, 'dark-background': isDarkMode }"
   >
-    <div
-      class="request"
-      :class="{ 'light-request': !isDarkMode, 'dark-request': isDarkMode }"
-    >
-      没有账户？
-      <router-link to="/request">点此创建</router-link>
-    </div>
+    <RequestAccount />
     <div class="login">
       <img src="@/assets/logo-light.png" v-show="!isDarkMode" />
       <img src="@/assets/logo-dark.png" v-show="isDarkMode" />
@@ -38,8 +32,13 @@
 </template>
 
 <script>
+import RequestAccount from "@/components/RequestAccount.vue";
+
 export default {
   name: "SignIn",
+  components: {
+    RequestAccount
+  },
   computed: {
     isDarkMode() {
       return this.$store.getters.isDarkMode;
@@ -94,28 +93,6 @@ export default {
   align-items: center;
 
   min-height: 100vh;
-}
-
-.request {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-}
-
-.light-request {
-  color: rgba(0, 0, 0, 0.3);
-
-  a {
-    color: #000000;
-  }
-}
-
-.dark-request {
-  color: rgba(255, 255, 255, 0.3);
-
-  a {
-    color: #ffffff;
-  }
 }
 
 .login {

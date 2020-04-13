@@ -7,8 +7,6 @@ Vue.use(Vuex);
 // 读取系统主体是否为“黑暗模式”
 if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
   window.localStorage.setItem("isDarkMode", "true");
-} else {
-  window.localStorage.setItem("isDarkMode", "false");
 }
 
 const userSetDarkMode = window.localStorage.getItem("isDarkMode") === "true";
